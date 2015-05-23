@@ -1,0 +1,71 @@
+15/05/22 15:28:26 INFO SparkContext: Starting job: count at <console>:24
+15/05/22 15:28:26 INFO DAGScheduler: Got job 1 (count at <console>:24) with 2 output partitions (allowLocal=false)
+15/05/22 15:28:26 INFO DAGScheduler: Final stage: ResultStage 1(count at <console>:24)
+15/05/22 15:28:26 INFO DAGScheduler: Parents of final stage: List()
+15/05/22 15:28:26 INFO DAGScheduler: Missing parents: List()
+15/05/22 15:28:26 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[1] at textFile at <console>:21), which has no missing parents
+15/05/22 15:28:26 INFO MemoryStore: ensureFreeSpace(3000) called with curMem=121375, maxMem=278302556
+15/05/22 15:28:26 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 2.9 KB, free 265.3 MB)
+15/05/22 15:28:26 INFO MemoryStore: ensureFreeSpace(1792) called with curMem=124375, maxMem=278302556
+15/05/22 15:28:26 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 1792.0 B, free 265.3 MB)
+15/05/22 15:28:26 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on localhost:37746 (size: 1792.0 B, free: 265.4 MB)
+15/05/22 15:28:26 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:874
+15/05/22 15:28:26 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 1 (MapPartitionsRDD[1] at textFile at <console>:21)
+15/05/22 15:28:26 INFO TaskSchedulerImpl: Adding task set 1.0 with 2 tasks
+15/05/22 15:28:26 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 2, localhost, ANY, 1421 bytes)
+15/05/22 15:28:26 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 3, localhost, ANY, 1421 bytes)
+15/05/22 15:28:26 INFO Executor: Running task 0.0 in stage 1.0 (TID 2)
+15/05/22 15:28:26 INFO Executor: Running task 1.0 in stage 1.0 (TID 3)
+15/05/22 15:28:26 INFO HadoopRDD: Input split: tachyon://xxx.xxx.xxx.xxx:19998/$HOST_NAME1:0+614
+15/05/22 15:28:26 INFO HadoopRDD: Input split: tachyon://xxx.xxx.xxx.xxx:19998/$HOST_NAME1:614+614
+15/05/22 15:28:26 INFO : open(tachyon://xxx.xxx.xxx.xxx:19998/$HOST_NAME1, 65536)
+15/05/22 15:28:26 INFO : open(tachyon://xxx.xxx.xxx.xxx:19998/$HOST_NAME1, 65536)
+15/05/22 15:28:26 WARN : Recache attempt failed.
+java.io.IOException: The machine does not have any local worker.
+  at tachyon.client.BlockOutStream.<init>(BlockOutStream.java:94)
+  at tachyon.client.BlockOutStream.<init>(BlockOutStream.java:65)
+  at tachyon.client.RemoteBlockInStream.read(RemoteBlockInStream.java:204)
+  at tachyon.hadoop.HdfsFileInputStream.read(HdfsFileInputStream.java:142)
+  at java.io.DataInputStream.read(DataInputStream.java:100)
+  at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:211)
+  at org.apache.hadoop.util.LineReader.readLine(LineReader.java:174)
+  at org.apache.hadoop.mapred.LineRecordReader.next(LineRecordReader.java:206)
+  at org.apache.hadoop.mapred.LineRecordReader.next(LineRecordReader.java:45)
+  at org.apache.spark.rdd.HadoopRDD$$anon$1.getNext(HadoopRDD.scala:248)
+  at org.apache.spark.rdd.HadoopRDD$$anon$1.getNext(HadoopRDD.scala:216)
+  at org.apache.spark.util.NextIterator.hasNext(NextIterator.scala:71)
+  at org.apache.spark.InterruptibleIterator.hasNext(InterruptibleIterator.scala:39)
+  at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:327)
+  at org.apache.spark.util.Utils$.getIteratorSize(Utils.scala:1618)
+  at org.apache.spark.rdd.RDD$$anonfun$count$1.apply(RDD.scala:1095)
+  at org.apache.spark.rdd.RDD$$anonfun$count$1.apply(RDD.scala:1095)
+  at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1765)
+  at org.apache.spark.SparkContext$$anonfun$runJob$5.apply(SparkContext.scala:1765)
+  at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:63)
+  at org.apache.spark.scheduler.Task.run(Task.scala:70)
+  at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+  at java.lang.Thread.run(Thread.java:745)
+15/05/22 15:28:26 INFO : Try to find remote worker and read block 209379655680 from 0, with len 1228
+15/05/22 15:28:26 INFO : Block locations:[NetAddress(mHost:xxx.xxx.xxx.xxx, mPort:29998, mSecondaryPort:29999)]
+15/05/22 15:28:26 INFO : Try to find remote worker and read block 209379655680 from 614, with len 614
+15/05/22 15:28:26 INFO : Block locations:[NetAddress(mHost:xxx.xxx.xxx.xxx, mPort:29998, mSecondaryPort:29999)]
+15/05/22 15:28:26 INFO : xxx.xxx.xxx.xxx:29999 current host is $HOST_NAME1 $IP_ADDRESS1
+15/05/22 15:28:26 INFO : xxx.xxx.xxx.xxx:29999 current host is $HOST_NAME1 $IP_ADDRESS1
+15/05/22 15:28:26 INFO : Connected to remote machine /xxx.xxx.xxx.xxx:29999 sent
+15/05/22 15:28:26 INFO : Connected to remote machine /xxx.xxx.xxx.xxx:29999 sent
+15/05/22 15:28:26 INFO : Data 209379655680 to remote machine /xxx.xxx.xxx.xxx:29999 sent
+15/05/22 15:28:26 INFO : Data 209379655680 to remote machine /xxx.xxx.xxx.xxx:29999 sent
+15/05/22 15:28:26 INFO : data java.nio.HeapByteBuffer[pos=0 lim=614 cap=614], blockId:209379655680 offset:614 dataLength:614
+15/05/22 15:28:26 INFO : data java.nio.HeapByteBuffer[pos=0 lim=1228 cap=1228], blockId:209379655680 offset:0 dataLength:1228
+15/05/22 15:28:26 INFO : Data 209379655680 from remote machine /xxx.xxx.xxx.xxx:29999 received
+15/05/22 15:28:26 INFO : Data 209379655680 from remote machine /xxx.xxx.xxx.xxx:29999 received
+15/05/22 15:28:26 INFO Executor: Finished task 1.0 in stage 1.0 (TID 3). 1830 bytes result sent to driver
+15/05/22 15:28:26 INFO Executor: Finished task 0.0 in stage 1.0 (TID 2). 1830 bytes result sent to driver
+15/05/22 15:28:26 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 3) in 142 ms on localhost (1/2)
+15/05/22 15:28:26 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 2) in 143 ms on localhost (2/2)
+15/05/22 15:28:26 INFO DAGScheduler: ResultStage 1 (count at <console>:24) finished in 0.143 s
+15/05/22 15:28:26 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+15/05/22 15:28:26 INFO DAGScheduler: Job 1 finished: count at <console>:24, took 0.150284 s
+res2: Long = 45

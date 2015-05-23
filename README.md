@@ -17,7 +17,7 @@ These information does not help the diagnose but would be leveraged by attackers
 
 Yup, I should replace ("%s/x/y/g") these information in the logs before sending them out. But I'm always miss some important ones, like today I replaced all the IPs with xxx.xxx.xxx.xxx but forget to replace the hostnames >_<.
 
-#Unavailability of ```lr_anonymize```
+##Unavailability of ```lr_anonymize``` source code
 
 There is a package called lire built by LogReport in 2006. It includes a tool called ```lr_anonymize``` which is supposed to do me the favor but it does not work well. For example, it treats any pattern of xxx.xxx.xxx.xxx as a hostname!! so my 
 ```
