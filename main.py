@@ -61,7 +61,8 @@ def anonymize(inputfile, outputfile):
         l = l.replace(host, nhost)
     
     if l.count('/') > 1:
-      print 'Contain files: ', l
+      if DEBUG:
+        print 'Contain files: ', l[-1]
    
     #names = getusrgrpnames()
     #for name in names:
